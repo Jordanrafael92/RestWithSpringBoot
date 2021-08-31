@@ -18,6 +18,51 @@ public class MathController {
 		Double sum = convertToDouble(numberOne) + convertToDouble(numberTwo);
 		return sum;
 	}
+	
+	@RequestMapping(value="/sub/{numberOne}/{numberTwo}", method = RequestMethod.GET)
+	public Double sub(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
+		if (!isNumeric(numberOne) || !isNumeric(numberTwo)) {
+			throw new UnsuportedException("Please set a numeric value!");
+		}
+		Double sub = convertToDouble(numberOne) - convertToDouble(numberTwo);
+		return sub;
+	}
+	
+	@RequestMapping(value="/mult/{numberOne}/{numberTwo}", method = RequestMethod.GET)
+	public Double mult(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
+		if (!isNumeric(numberOne) || !isNumeric(numberTwo)) {
+			throw new UnsuportedException("Please set a numeric value!");
+		}
+		Double mult = convertToDouble(numberOne) * convertToDouble(numberTwo);
+		return mult;
+	}
+	
+	@RequestMapping(value="/div/{numberOne}/{numberTwo}", method = RequestMethod.GET)
+	public Double div(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
+		if (!isNumeric(numberOne) || !isNumeric(numberTwo)) {
+			throw new UnsuportedException("Please set a numeric value!");
+		}
+		Double div = convertToDouble(numberOne) / convertToDouble(numberTwo);
+		return div;
+	}
+	
+	@RequestMapping(value="/avg/{numberOne}/{numberTwo}", method = RequestMethod.GET)
+	public Double avg(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
+		if (!isNumeric(numberOne) || !isNumeric(numberTwo)) {
+			throw new UnsuportedException("Please set a numeric value!");
+		}
+		Double avg = (convertToDouble(numberOne) + convertToDouble(numberTwo)) / 2;
+		return avg;
+	}
+	
+	@RequestMapping(value="/squareRoot/{numberOne}", method = RequestMethod.GET)
+	public Double media(@PathVariable("numberOne") String numberOne) throws Exception {
+		if (!isNumeric(numberOne)) {
+			throw new UnsuportedException("Please set a numeric value!");
+		}
+		Double squareRoot = (Double) Math.sqrt(convertToDouble(numberOne));
+		return squareRoot;
+	}
 
 	private Double convertToDouble(String strNumber) {
 		if (strNumber == null) return 0D;
