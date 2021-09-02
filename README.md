@@ -14,6 +14,8 @@ Square Root = http://localhost:8080/squareRoot/number
 
 ************************************************************************************
 ******************************** Injecting Services ********************************
+-- One Person
+
 GET: http://localhost:8080/person/1
 
 Return:
@@ -24,3 +26,33 @@ Return:
   "address": "Av América - PR",
   "gender": "Male"
 }
+
+--------------------------------------------------------
+-- List People
+
+GET: http://localhost:8080/person
+
+Return:
+[
+  {
+    "id": 9,
+    "firstName": "Person Name0",
+    "lastName": "Last name0",
+    "address": "Some address in Brazil0",
+    "gender": "Male0"
+  },
+  {
+    "id": 10,
+    "firstName": "Person Name1",
+    "lastName": "Last name1",
+    "address": "Some address in Brazil1",
+    "gender": "Male1"
+  },
+  {
+    "id": 11,
+    "firstName": "Person Name2",
+    "lastName": "Last name2",
+    "address": "Some address in Brazil2",
+    "gender": "Male2"
+  }
+]
